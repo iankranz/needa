@@ -1,11 +1,8 @@
 <template>
   <div class="bg">
     <h1 class="title">Need a dev?</h1>
-    <p class="description">Try <a href="#" class="link">needa.dev</a></p>
     <p class="description">
-      email
-      <a href="mailto:hello@needa.dev" class="link">hello@needa.dev</a> for more
-      info
+      <a href="#" class="link">needa.dev</a> coming soon
     </p>
   </div>
 </template>
