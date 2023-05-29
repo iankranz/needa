@@ -1,22 +1,8 @@
-import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite"
+import { collection, getDocs } from "firebase/firestore/lite"
+import { firestore } from "../lib/firebase"
 
 export default defineEventHandler((event) => {
-  const config = useRuntimeConfig()
-
-  const firebaseConfig = {
-    apiKey: config.firebaseApiKey,
-    authDomain: config.firebaseAuthDomain,
-    projectId: config.firebaseProjectId,
-    storageBucket: config.firebaseStorageBucket,
-    messagingSenderId: config.firebaseMessagingSenderId,
-    appId: config.firebaseAppId,
-    measurementId: config.firebaseMeasurementId,
-  }
-
-  const app = initializeApp(firebaseConfig)
-  const db = getFirestore(app)
-  const jobsCol = collection(db, "jobs")
+  const jobsCol = collection(firestore, "jobs")
 
   return new Promise(async (resolve, reject) => {
     try {

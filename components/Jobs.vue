@@ -5,17 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-type Job = {
-  id: string
-  company: string
-  title: string
-}
-
-const { data } = await useFetch("/api/jobs")
-
-const jobs = computed(() => {
-  return data.value as Job[]
-})
+const { jobs } = useJobs()
 </script>
 
 <style>

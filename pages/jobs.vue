@@ -1,8 +1,6 @@
 <template>
   <h2 class="description">Jobs</h2>
-  <ClientOnly>
-    <JobList />
-  </ClientOnly>
+  <Jobs />
 </template>
 
 <style>
