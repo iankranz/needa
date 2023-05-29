@@ -6,4 +6,13 @@ export default defineNuxtConfig({
       Comfortaa: true,
     },
   },
-});
+  runtimeConfig: {
+    firebaseApiKey: "",
+    firebaseAuthDomain: "",
+    firebaseProjectId: "",
+    firebaseStorageBucket: "",
+    firebaseMessagingSenderId: "",
+    firebaseAppId: "",
+    firebaseMeasurementId: "",
+  },
+})

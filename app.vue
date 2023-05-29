@@ -1,11 +1,10 @@
 <template>
   <div class="bg">
-    <h1 class="title">Need a dev?</h1>
-    <p class="description">
-      <a href="#" class="link">needa.dev</a> coming soon
-    </p>
+    <NuxtPage />
   </div>
 </template>
+
+<script lang="ts" setup></script>
 
 <style>
 body {
@@ -22,16 +21,5 @@ body {
   width: 100%;
   margin: 0rem;
   padding: 0rem;
-}
-.title {
-  padding: 4rem 0rem 0rem 0rem;
-  color: #ffffff;
-}
-.description {
-  color: #ffffff;
-}
-
-.link {
-  color: #00aaaa;
 }
 </style>
