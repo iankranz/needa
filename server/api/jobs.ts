@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore/lite"
-import { firestore } from "../lib/firebase"
+import { firestore } from "../firebase"
 
 export default defineEventHandler((event) => {
   const jobsCol = collection(firestore, "jobs")
