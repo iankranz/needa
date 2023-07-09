@@ -1,5 +1,7 @@
 <template>
+  <div>username</div>
   <input v-model="email" type="email" />
+  <div>password</div>
   <input v-model="password" type="password" />
   <button @click="signIn">Submit</button>
 </template>
@@ -15,11 +17,11 @@ const user = ref<User | null>(null)
 async function signIn() {
   console.log($firebaseAuth)
   signInWithEmailAndPassword($firebaseAuth, email.value, password.value)
-    .then((userCredential) => {
+    .then(userCredential => {
       user.value = userCredential.user
       console.log(user.value)
     })
-    .catch((error) => {
+    .catch(error => {
       alert(error.message)
     })
 }

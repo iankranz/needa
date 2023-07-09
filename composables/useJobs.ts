@@ -1,3 +1,5 @@
+import { getIdToken } from "firebase/auth"
+
 type Job = {
   id: string
   title?: string
@@ -5,9 +7,23 @@ type Job = {
 }
 
 export function useJobs() {
+  const { $firebaseAuth } = useNuxtApp()
+
   const jobs = ref<Job[] | null>(null)
-  useFetch("/api/jobs").then((res) => {
+  useFetch("/api/jobs").then(res => {
     jobs.value = res.data.value as Job[]
   })
-  return { jobs }
+
+  async function createJob(job: Omit<Job, "id">) {
+    const user = $firebaseAuth.currentUser
+    if (!user) return
+    const idToken = await getIdToken(user)
+    $fetch("/api/jobs/create/", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${idToken}` },
+      body: { ...job }
+    })
+  }
+
+  return { jobs, createJob }
 }

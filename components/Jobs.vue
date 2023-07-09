@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-const { jobs } = useJobs()
+const { jobs, createJob } = useJobs()
 </script>
 
 <style>
