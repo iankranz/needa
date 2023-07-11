@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/google-fonts"],
+  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   googleFonts: {
     families: {
-      Comfortaa: true,
-    },
+      Comfortaa: true
+    }
   },
   runtimeConfig: {
     public: {
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
       storageBucket: process.env.NUXT_FIREBASE_STORAGE_BUCKET,
       messagingSenderId: process.env.NUXT_FIREBASE_MESSAGING_SENDER_ID,
       appId: process.env.NUXT_FIREBASE_APP_ID,
-      measurementId: process.env.NUXT_FIREBASE_MEASUREMENT_ID,
-    },
-  },
+      measurementId: process.env.NUXT_FIREBASE_MEASUREMENT_ID
+    }
+  }
 })

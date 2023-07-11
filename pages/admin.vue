@@ -1,21 +1,15 @@
 <template>
   <ClientOnly>
-    <Login />
-    <div>title</div>
-    <input v-model="title" />
-    <div>company</div>
-    <input v-model="company" />
-    <button @click="handleCreateClick">create job</button>
+    <div v-if="isLoadingAuth">Loading...</div>
+    <LoginForm v-else-if="!user" />
+    <AdminNav v-else />
   </ClientOnly>
 </template>
 
 <script lang="ts" setup>
-const { createJob } = useJobs()
+import LoginForm from "~/components/LoginForm.vue"
+import { useAuth } from "~/composables/useAuth"
+import AdminNav from "~/components/AdminNav.vue"
 
-const title = ref("")
-const company = ref("")
-
-function handleCreateClick() {
-  createJob({ title: title.value, company: company.value })
-}
+const { user, isLoadingAuth } = useAuth()
 </script>
